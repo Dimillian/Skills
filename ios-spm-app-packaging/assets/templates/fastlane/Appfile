@@ -1,0 +1,9 @@
+# App identifier and Apple ID
+app_identifier("com.example.myapp")
+apple_id("your@email.com")
+
+# Team ID from Apple Developer portal
+team_id("XXXXXXXXXX")
+
+# App Store Connect team (if different)
+# itc_team_id("XXXXXXXXXX")

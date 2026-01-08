@@ -1,0 +1,56 @@
+opt_out_usage
+default_platform(:ios)
+
+platform :ios do
+  desc "Lint code with SwiftLint"
+  lane :lint do
+    swiftlint(mode: :lint, strict: true, reporter: "xcode")
+  end
+
+  desc "Build and upload to TestFlight"
+  lane :beta do
+    # match(type: "appstore")
+    sh "cd .. && tuist generate"
+    build_app(scheme: "MyApp", configuration: "Release", export_method: "app-store")
+    upload_to_testflight(skip_waiting_for_build_processing: true)
+  end
+
+  desc "CI build without signing"
+  lane :ci do
+    sh "cd .. && tuist generate"
+    sh "cd .. && SKIP_SIGNING=1 Scripts/archive.sh"
+  end
+
+  desc "Build for simulator"
+  lane :build do
+    sh "cd .. && tuist generate"
+    sh "cd .. && tuist xcodebuild build -scheme MyApp -sdk iphonesimulator -configuration Debug"
+  end
+
+  desc "Create GitHub release with IPA"
+  lane :release do |options|
+    version = options[:version]
+    UI.user_error!("Version required: fastlane release version:1.2.0") unless version
+
+    sh "cd .. && sed -i '' 's/\"MARKETING_VERSION\": \"[^\"]*\"/\"MARKETING_VERSION\": \"#{version}\"/' Project.swift"
+    sh "cd .. && tuist generate"
+    build_app(scheme: "MyApp", configuration: "Release", export_method: "app-store")
+
+    sh "cd .. && git add Project.swift"
+    sh "cd .. && git commit -m 'Bump version to #{version}' || true"
+    sh "cd .. && git push"
+    sh "cd .. && git tag v#{version}"
+    sh "cd .. && git push origin v#{version}"
+
+    github_release(
+      api_token: ENV["GITHUB_TOKEN"],
+      repository_name: ENV["GITHUB_REPOSITORY"],
+      name: "MyApp #{version}",
+      tag_name: "v#{version}",
+      is_generate_release_notes: true,
+      upload_assets: [lane_context[SharedValues::IPA_OUTPUT_PATH]]
+    )
+
+    upload_to_testflight(skip_waiting_for_build_processing: true) if options[:testflight]
+  end
+end
