@@ -35,6 +35,8 @@ Avoid duplicating Apple docs without adding value.
 
 ```bash
 cp -r assets/templates/skill-template my-skill-name
+mv my-skill-name/SKILL.template.md my-skill-name/SKILL.md
+mv my-skill-name/references/example.template.md my-skill-name/references/topic.md
 ```
 
 ### 3. Write frontmatter
