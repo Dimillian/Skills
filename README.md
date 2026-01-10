@@ -8,9 +8,38 @@ A collection of specialized skills for iOS and Swift development workflows.
 
 This repository contains a set of focused skills designed to assist with common iOS development tasks, from generating release notes to debugging apps and maintaining code quality.
 
-Install: place these skill folders under `$CODEX_HOME/skills/public` (or symlink this repo there).
+## Installation
 
-Optional: enable the pre-commit hook to keep `docs/skills.json` in sync:
+### Claude Code
+
+For **project-level skills** (recommended), clone or symlink this repo and the skills in `.claude/skills/` will be automatically available:
+
+```bash
+# Clone into your project directory
+git clone https://github.com/dimillian/Skills.git .claude-skills
+# Or symlink specific skills
+ln -s /path/to/Skills/.claude/skills/swiftui-ui-patterns .claude/skills/swiftui-ui-patterns
+```
+
+For **personal skills** (available across all projects):
+
+```bash
+# Copy skills to your personal Claude Code skills directory
+cp -r .claude/skills/* ~/.claude/skills/
+```
+
+**Currently available for Claude Code:**
+- `swiftui-ui-patterns` - SwiftUI view patterns and component guidance
+- `swift-concurrency-expert` - Swift 6.2+ concurrency review and fixes
+- `swiftui-liquid-glass` - iOS 26+ Liquid Glass API implementation
+
+### OpenAI Codex
+
+Place these skill folders under `$CODEX_HOME/skills/public` (or symlink this repo there).
+
+### Optional
+
+Enable the pre-commit hook to keep `docs/skills.json` in sync:
 `git config core.hooksPath scripts/git-hooks`
 
 ## Skills
