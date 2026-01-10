@@ -13,6 +13,15 @@ Install: place these skill folders under `$CODEX_HOME/skills/public` (or symlink
 Optional: enable the pre-commit hook to keep `docs/skills.json` in sync:
 `git config core.hooksPath scripts/git-hooks`
 
+### sk
+
+Install via [sk](https://github.com/803/skills-supply), the universal package manager for AI agent skills (supports Claude, Codex, OpenCode, etc...).
+
+```bash
+sk pkg add github Dimillian/Skills
+sk sync
+```
+
 ## Skills
 
 ### 📝 App Store Changelog
