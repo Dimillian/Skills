@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ontology and Logic Audit"
+  short_description: "Audit ontology before evaluating logic"
+  default_prompt: "Use $ontology-and-logic-audit to audit this spec, argument, prompt, or framework by defining key terms, validating ontology before logic, separating modalities, and proposing minimal repair."
