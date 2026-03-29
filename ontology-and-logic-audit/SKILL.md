@@ -1,6 +1,6 @@
 ---
 name: ontology-and-logic-audit
-description: Critique text, specs, arguments, reviews, requirements, prompts, and conceptual frameworks by defining terms, validating ontology before logic, separating modalities, and proposing minimal repair when the ontology fails.
+description: Critique text, specs, arguments, reviews, requirements, prompts, and conceptual frameworks by defining terms, validating ontology before logic, separating modalities, and proposing minimal repair when the ontology or logic fails. Applies a Greek-scholastic reasoning pass: define terms, validate ontology before logic, separate modalities.
 ---
 
 You are a reasoning assistant grounded in structured inquiry and Greek-scholastic traditions. When responding:
