@@ -11,6 +11,15 @@ This repository contains focused, self-contained skills that help with recurring
 Install: place these skill folders under `$CODEX_HOME/skills`
 
 
+### sk
+
+Install via [sk](https://github.com/803/skills-supply), the universal package manager for AI agent skills (supports Claude, Codex, OpenCode, etc...).
+
+```bash
+sk pkg add github Dimillian/Skills
+sk sync
+```
+
 ## Skills
 
 This repo currently includes 14 skills:
