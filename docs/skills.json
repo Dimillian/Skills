@@ -11,9 +11,15 @@
     ]
   },
   {
-    "name": "gh-issue-fix-flow",
-    "folder": "gh-issue-fix-flow",
-    "description": "End-to-end GitHub issue fix workflow using gh, local code changes, builds/tests, and git push. Use when asked to take an issue number, inspect the issue via gh, implement a fix, run XcodeBuildMCP builds/tests, commit with a closing message, and push.",
+    "name": "bug-hunt-swarm",
+    "folder": "bug-hunt-swarm",
+    "description": "Parallel read-only multi-agent root-cause investigation for bugs, regressions, crashes, flaky behavior, or unexplained failures. Use when the user asks to investigate a bug, find the root cause, trace a regression, understand why something broke, or wants a ranked diagnosis with the fastest proof path without making code edits.",
+    "references": []
+  },
+  {
+    "name": "github",
+    "folder": "github",
+    "description": "Interact with GitHub using the `gh` CLI. Use `gh issue`, `gh pr`, `gh run`, and `gh api` for issues, PRs, CI runs, and advanced queries. Use when the user asks about GitHub issues, pull requests, workflows, or wants to interact with GitHub repositories from the command line \u2014 including tasks like check CI status, create PR, list issues, or query the GitHub API.",
     "references": []
   },
   {
@@ -23,10 +29,83 @@
     "references": []
   },
   {
+    "name": "macos-menubar-tuist-app",
+    "folder": "macos-menubar-tuist-app",
+    "description": "Build, refactor, or review macOS menubar apps that use Tuist and SwiftUI. Use when creating or maintaining LSUIElement menubar utilities, defining Tuist targets/manifests, implementing model-client-store-view architecture, adding script-based launch flows, or validating reliable local build/run behavior without Xcode-first workflows.",
+    "references": []
+  },
+  {
+    "name": "macos-spm-app-packaging",
+    "folder": "macos-spm-app-packaging",
+    "description": "Scaffold, build, and package SwiftPM-based macOS apps without an Xcode project. Use when you need a from-scratch macOS app layout, SwiftPM targets/resources, a custom .app bundle assembly script, or signing/notarization/appcast steps outside Xcode.",
+    "references": [
+      {
+        "title": "Packaging notes",
+        "file": "references/packaging.md"
+      },
+      {
+        "title": "Release and notarization notes",
+        "file": "references/release.md"
+      },
+      {
+        "title": "Scaffold a SwiftPM macOS app (no Xcode)",
+        "file": "references/scaffold.md"
+      }
+    ]
+  },
+  {
+    "name": "orchestrate-batch-refactor",
+    "folder": "orchestrate-batch-refactor",
+    "description": "Plan and execute large refactor or rewrite efforts efficiently with parallel multi-agent analysis and implementation. Use when a user asks to refactor many files, split workstreams, analyze a target code area, and coordinate sub-agents with clear ownership and dependency-aware execution.",
+    "references": [
+      {
+        "title": "Agent Prompt Templates",
+        "file": "references/agent-prompt-templates.md"
+      },
+      {
+        "title": "Work Packet Template",
+        "file": "references/work-packet-template.md"
+      }
+    ]
+  },
+  {
+    "name": "project-skill-audit",
+    "folder": "project-skill-audit",
+    "description": "Analyze a project's past Codex sessions, memory files, and existing local skills to recommend the highest-value skills to create or update. Use when a user asks what skills a project needs, wants skill ideas grounded in real project history, wants an audit of current project-local skills, or wants recommendations for updating stale or incomplete skills instead of creating duplicates.",
+    "references": []
+  },
+  {
+    "name": "react-component-performance",
+    "folder": "react-component-performance",
+    "description": "Analyze and optimize React component performance issues (slow renders, re-render thrash, laggy lists, expensive computations). Use when asked to profile or improve a React component, reduce re-renders, or speed up UI updates in React apps.",
+    "references": [
+      {
+        "title": "Examples",
+        "file": "references/examples.md"
+      }
+    ]
+  },
+  {
+    "name": "review-and-simplify-changes",
+    "folder": "review-and-simplify-changes",
+    "description": "Review a git diff or explicit file scope for reuse, code quality, efficiency, clarity, and standards issues, then optionally apply safe Codex-driven fixes. Use when the user asks to \\\"simplify code\\\", \\\"review changed code\\\", \\\"check for code reuse\\\", \\\"review code quality\\\", \\\"review efficiency\\\", \\\"simplify changes\\\", \\\"clean up code\\\", \\\"refactor changes\\\", or \\\"run simplify\\\".",
+    "references": []
+  },
+  {
+    "name": "review-swarm",
+    "folder": "review-swarm",
+    "description": "Parallel read-only multi-agent review of a current git diff or explicit file scope to find behavioral regressions, security or privacy risks, performance or reliability issues, and contract or test coverage gaps. Use when the user asks for a review swarm, parallel review, diff review, regression review, security review, or wants high-signal issues plus a prioritized fix path without editing files.",
+    "references": []
+  },
+  {
     "name": "swift-concurrency-expert",
     "folder": "swift-concurrency-expert",
-    "description": "Swift Concurrency review and remediation for Swift 6.2+. Use when asked to review Swift Concurrency usage, improve concurrency compliance, or fix Swift concurrency compiler errors in a feature or file.",
+    "description": "Swift Concurrency review and remediation for Swift 6.2+. Use when asked to review Swift Concurrency usage, improve concurrency compliance, or fix Swift concurrency compiler errors in a feature or file. Concrete actions include adding Sendable conformance, applying @MainActor annotations, resolving actor isolation warnings, fixing data race diagnostics, and migrating completion handlers to async/await.",
     "references": [
+      {
+        "title": "Approachable Concurrency",
+        "file": "references/approachable-concurrency.md"
+      },
       {
         "title": "Swift 6 2 Concurrency",
         "file": "references/swift-6-2-concurrency.md"
@@ -54,12 +133,24 @@
     "description": "Audit and improve SwiftUI runtime performance from code review and architecture. Use for requests to diagnose slow rendering, janky scrolling, high CPU/memory usage, excessive view updates, or layout thrash in SwiftUI apps, and to provide guidance for user-run Instruments profiling when code review alone is insufficient.",
     "references": [
       {
+        "title": "Common code smells and remediation patterns",
+        "file": "references/code-smells.md"
+      },
+      {
         "title": "Demystify SwiftUI Performance (WWDC23) (Summary)",
         "file": "references/demystify-swiftui-performance-wwdc23.md"
       },
       {
         "title": "Optimizing SwiftUI Performance with Instruments (Summary)",
         "file": "references/optimizing-swiftui-performance-instruments.md"
+      },
+      {
+        "title": "Profiling intake and collection checklist",
+        "file": "references/profiling-intake.md"
+      },
+      {
+        "title": "Audit output template",
+        "file": "references/report-template.md"
       },
       {
         "title": "Understanding Hangs in Your App (Summary)",
@@ -74,11 +165,15 @@
   {
     "name": "swiftui-ui-patterns",
     "folder": "swiftui-ui-patterns",
-    "description": "Best practices and example-driven guidance for building SwiftUI views and components. Use when creating or refactoring SwiftUI UI, designing tab architecture with TabView, composing screens, or needing component-specific patterns and examples.",
+    "description": "Best practices and example-driven guidance for building SwiftUI views and components, including navigation hierarchies, custom view modifiers, and responsive layouts with stacks and grids. Use when creating or refactoring SwiftUI UI, designing tab architecture with TabView, composing screens with VStack/HStack, managing @State or @Binding, building declarative iOS interfaces, or needing component-specific patterns and examples.",
     "references": [
       {
-        "title": "App scaffolding wiring",
-        "file": "references/app-scaffolding-wiring.md"
+        "title": "App wiring and dependency graph",
+        "file": "references/app-wiring.md"
+      },
+      {
+        "title": "Async state and task lifecycle",
+        "file": "references/async-state.md"
       },
       {
         "title": "Components Index",
@@ -113,8 +208,20 @@
         "file": "references/input-toolbar.md"
       },
       {
+        "title": "Lightweight Clients (Closure-Based)",
+        "file": "references/lightweight-clients.md"
+      },
+      {
         "title": "List and Section",
         "file": "references/list.md"
+      },
+      {
+        "title": "Loading & Placeholders",
+        "file": "references/loading-placeholders.md"
+      },
+      {
+        "title": "macOS Settings",
+        "file": "references/macos-settings.md"
       },
       {
         "title": "Matched transitions",
@@ -125,12 +232,28 @@
         "file": "references/media.md"
       },
       {
+        "title": "Menu Bar",
+        "file": "references/menu-bar.md"
+      },
+      {
         "title": "NavigationStack",
         "file": "references/navigationstack.md"
       },
       {
         "title": "Overlay and toasts",
         "file": "references/overlay.md"
+      },
+      {
+        "title": "Performance guardrails",
+        "file": "references/performance.md"
+      },
+      {
+        "title": "Previews",
+        "file": "references/previews.md"
+      },
+      {
+        "title": "Scroll-reveal detail surfaces",
+        "file": "references/scroll-reveal.md"
       },
       {
         "title": "ScrollView and Lazy stacks",
@@ -157,6 +280,10 @@
         "file": "references/theming.md"
       },
       {
+        "title": "Title menus",
+        "file": "references/title-menus.md"
+      },
+      {
         "title": "Top bar overlays (iOS 26+ and fallback)",
         "file": "references/top-bar.md"
       }
@@ -165,7 +292,7 @@
   {
     "name": "swiftui-view-refactor",
     "folder": "swiftui-view-refactor",
-    "description": "Refactor and review SwiftUI view files for consistent structure, dependency injection, and Observation usage. Use when asked to clean up a SwiftUI view\u2019s layout/ordering, handle view models safely (non-optional when possible), or standardize how dependencies and @Observable state are initialized and passed.",
+    "description": "Refactor and review SwiftUI view files with strong defaults for small dedicated subviews, MV-over-MVVM data flow, stable view trees, explicit dependency injection, and correct Observation usage. Use when cleaning up a SwiftUI view, splitting long bodies, removing inline actions or side effects, reducing computed `some View` helpers, or standardizing `@Observable` and view model initialization patterns.",
     "references": [
       {
         "title": "MV Patterns Reference",
