@@ -14,13 +14,16 @@ Follow this sequence unless the user asks for a narrower action.
 ### 1) Discover the booted simulator
 - Call `mcp__XcodeBuildMCP__list_sims` and select the simulator with state `Booted`.
 - If none are booted, ask the user to boot one (do not boot automatically unless asked).
+- If multiple are booted, ask the user which simulator to use unless there is an existing default that already matches.
+- If booted list is stale, still call `mcp__XcodeBuildMCP__list_sims` again before launch.
 
 ### 2) Set session defaults
-- Call `mcp__XcodeBuildMCP__session-set-defaults` with:
+When context is unclear, re-run discovery (`mcp__XcodeBuildMCP__list_sims` and `mcp__XcodeBuildMCP__discover_projs`) then call `mcp__XcodeBuildMCP__session-set-defaults` with:
   - `projectPath` or `workspacePath` (whichever the repo uses)
   - `scheme` for the current app
   - `simulatorId` from the booted device
   - Optional: `configuration: "Debug"`, `useLatestOS: true`
+- If the scheme is unknown, run `mcp__XcodeBuildMCP__discover_projs` and pick the current app scheme when possible.
 
 ### 3) Build + run (when requested)
 - Call `mcp__XcodeBuildMCP__build_run_sim`.
@@ -44,6 +47,7 @@ Use these when asked to inspect or interact with the running app.
 - Start logs: `mcp__XcodeBuildMCP__start_sim_log_cap` with the app bundle id.
 - Stop logs: `mcp__XcodeBuildMCP__stop_sim_log_cap` and summarize important lines.
 - For console output, set `captureConsole: true` and relaunch if required.
+- Prefer restarting log capture after relaunch to avoid mixing pre/post-launch noise.
 
 ## Troubleshooting
 - If build fails, ask whether to retry with `preferXcodebuild: true`.
