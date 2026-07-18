@@ -1,0 +1,4 @@
+interface:
+  display_name: "SwiftData Testing"
+  short_description: "Write and review SwiftData test code"
+  default_prompt: "Use $swiftdata-testing to write or review SwiftData test code for this file or feature."
