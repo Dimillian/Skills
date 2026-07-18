@@ -13,7 +13,7 @@ Install: place these skill folders under `$CODEX_HOME/skills`
 
 ## Skills
 
-This repo currently includes 16 skills:
+This repo currently includes 17 skills:
 
 | Skill | Folder | Description |
 | --- | --- | --- |
@@ -28,6 +28,7 @@ This repo currently includes 16 skills:
 | Bug Hunt Swarm | `bug-hunt-swarm` | Runs a read-only four-agent bug investigation focused on reproduction, code-path tracing, regressors, and the fastest proof step, then returns a ranked root-cause path. |
 | Review and Simplify Changes | `review-and-simplify-changes` | Reviews a git diff or explicit file scope for reuse, code quality, efficiency, clarity, and standards issues, then optionally applies safe, behavior-preserving fixes. |
 | Review Swarm | `review-swarm` | Runs a read-only four-agent diff review focused on behavioral regressions, security risks, performance or reliability issues, and contract or test coverage gaps, then returns a prioritized fix path. |
+| SwiftData Testing | `swiftdata-testing` | Writes and reviews SwiftData test code — in-memory `ModelContainer` fixtures, mock repository patterns, `@ModelActor` test isolation, `Decimal` money-value assertions, and content-hash dedup testing. |
 | Swift Concurrency Expert | `swift-concurrency-expert` | Reviews and fixes Swift 6.2+ concurrency issues such as actor isolation problems, `Sendable` violations, main-actor annotations, and data-race diagnostics. |
 | SwiftUI Liquid Glass | `swiftui-liquid-glass` | Implements, reviews, or refactors SwiftUI features to use the iOS 26+ Liquid Glass APIs correctly, with proper modifier ordering, grouping, interactivity, and fallbacks. |
 | SwiftUI Performance Audit | `swiftui-performance-audit` | Audits SwiftUI runtime performance from code and architecture, focusing on invalidation storms, identity churn, layout thrash, heavy render work, and profiling guidance. |
