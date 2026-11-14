@@ -68,8 +68,7 @@ class Foo: SomeProtocol {
 
 // After: scope the conformance to @MainActor so the requirement is
 // satisfied inside the correct isolation context
-@MainActor
-extension Foo: SomeProtocol {
+extension Foo: @MainActor SomeProtocol {
     func protocolMethod() { /* safely accesses main-actor state */ }
 }
 ```
